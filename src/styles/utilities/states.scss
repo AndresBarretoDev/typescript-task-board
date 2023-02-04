@@ -1,0 +1,10 @@
+*.hide,
+.hide {
+  opacity: 0;
+  pointer-events: none !important;
+}
+
+*.hidden,
+.hidden {
+  display: none !important;
+}

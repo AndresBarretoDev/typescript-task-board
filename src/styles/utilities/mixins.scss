@@ -1,0 +1,139 @@
+/* MIXINS */
+// MEDIAQUERIES
+@mixin mq($media) {
+  @if type-of($media) == number {
+    @if unitless($media) {
+      @media only screen and (max-width: ($media + px)) {
+        @content;
+      }
+    }
+  } @else {
+    @if type-of(map-get($mediaqueries, $media)) == number {
+      @media only screen and (max-width: ( map-get($mediaqueries,$media) + px)) {
+        @content;
+      }
+    } @else if type-of(map-get($mediaqueries, $media)) == string {
+      @media #{map-get($mediaqueries,$media)} {
+        @content;
+      }
+    }
+  }
+}
+// Flexbox
+@mixin flex(
+  $horizontal: center,
+  $vertical: center,
+  $wrap: wrap,
+  $display: flex
+) {
+  display: $display;
+  justify-content: $horizontal;
+  align-items: $vertical;
+  align-content: $vertical;
+  flex-wrap: $wrap;
+}
+
+// PX to REM
+@mixin fontSize($size) {
+  font-size: ($size / $baseFont) + rem;
+}
+// PX TO REM OPTION FUNCTION
+@function toRem($size) {
+  $newSize: ($size / $baseFont) + rem;
+  @return $newSize;
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+/* ITERATIONS */
+
+// Margins and Paddings
+@for $i from 0 through 20 {
+  $value: $i * 5;
+  // Margin
+  .mt#{$value} {
+    margin-top: #{$value}px;
+  }
+  .mb#{$value} {
+    margin-bottom: #{$value}px;
+  }
+  .mr#{$value} {
+    margin-right: #{$value}px;
+  }
+  .ml#{$value} {
+    margin-left: #{$value}px;
+  }
+  // Padding
+  .pt#{$value} {
+    padding-top: #{$value}px;
+  }
+  .pb#{$value} {
+    padding-bottom: #{$value}px;
+  }
+  .pr#{$value} {
+    padding-right: #{$value}px;
+  }
+  .pl#{$value} {
+    padding-left: #{$value}px;
+  }
+}
+
+// Margins and Paddings on mobile
+@for $i from 0 through 10 {
+  $value: $i * 5;
+  // Margins
+  .mtm#{$value} {
+    @include mq(mob) {
+      margin-top: #{$value}px;
+    }
+  }
+  .mbm#{$value} {
+    @include mq(mob) {
+      margin-bottom: #{$value}px;
+    }
+  }
+  .mlm#{$value} {
+    @include mq(mob) {
+      margin-left: #{$value}px;
+    }
+  }
+  .mrm#{$value} {
+    @include mq(mob) {
+      margin-right: #{$value}px;
+    }
+  }
+  // Paddings
+  .ptm#{$value} {
+    @include mq(mob) {
+      padding-top: #{$value}px;
+    }
+  }
+  .pbm#{$value} {
+    @include mq(mob) {
+      padding-bottom: #{$value}px;
+    }
+  }
+  .plm#{$value} {
+    @include mq(mob) {
+      padding-left: #{$value}px;
+    }
+  }
+  .prm#{$value} {
+    @include mq(mob) {
+      padding-right: #{$value}px;
+    }
+  }
+}
