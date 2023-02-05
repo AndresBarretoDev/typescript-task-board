@@ -42,7 +42,12 @@
   $newSize: ($size / $baseFont) + rem;
   @return $newSize;
 }
-
+// Placeholder styles
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
 @mixin placeholder {
   @include optional-at-root('::-webkit-input-placeholder') {
     @content;
@@ -64,29 +69,29 @@
 @for $i from 0 through 20 {
   $value: $i * 5;
   // Margin
-  .mt#{$value} {
+  .mt-#{$value} {
     margin-top: #{$value}px;
   }
-  .mb#{$value} {
+  .mb-#{$value} {
     margin-bottom: #{$value}px;
   }
-  .mr#{$value} {
+  .mr-#{$value} {
     margin-right: #{$value}px;
   }
-  .ml#{$value} {
+  .ml-#{$value} {
     margin-left: #{$value}px;
   }
   // Padding
-  .pt#{$value} {
+  .pt-#{$value} {
     padding-top: #{$value}px;
   }
-  .pb#{$value} {
+  .pb-#{$value} {
     padding-bottom: #{$value}px;
   }
-  .pr#{$value} {
+  .pr-#{$value} {
     padding-right: #{$value}px;
   }
-  .pl#{$value} {
+  .pl-#{$value} {
     padding-left: #{$value}px;
   }
 }
@@ -95,43 +100,43 @@
 @for $i from 0 through 10 {
   $value: $i * 5;
   // Margins
-  .mtm#{$value} {
+  .mtm-#{$value} {
     @include mq(mob) {
       margin-top: #{$value}px;
     }
   }
-  .mbm#{$value} {
+  .mbm-#{$value} {
     @include mq(mob) {
       margin-bottom: #{$value}px;
     }
   }
-  .mlm#{$value} {
+  .mlm-#{$value} {
     @include mq(mob) {
       margin-left: #{$value}px;
     }
   }
-  .mrm#{$value} {
+  .mrm-#{$value} {
     @include mq(mob) {
       margin-right: #{$value}px;
     }
   }
   // Paddings
-  .ptm#{$value} {
+  .ptm-#{$value} {
     @include mq(mob) {
       padding-top: #{$value}px;
     }
   }
-  .pbm#{$value} {
+  .pbm-#{$value} {
     @include mq(mob) {
       padding-bottom: #{$value}px;
     }
   }
-  .plm#{$value} {
+  .plm-#{$value} {
     @include mq(mob) {
       padding-left: #{$value}px;
     }
   }
-  .prm#{$value} {
+  .prm-#{$value} {
     @include mq(mob) {
       padding-right: #{$value}px;
     }

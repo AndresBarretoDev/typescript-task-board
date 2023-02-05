@@ -3,11 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Task Board in Typescript</title>
   </head>
   <body>
-    <div id="app"></div>
+    <main class="main">
+      <div class="container">
+        <div class="text-right">
+          <button class="btn btn-primary btn-circle mt-10 mb-10 button-modal">
+            +
+          </button>
+        </div>
+        <!-- task board grid -->
+        <div class="dashboard">
+          <!-- column task -->
+          <div class="column" id="columnTasks">
+            <h2 class="column-title">All tasks</h2>
+
+            <div class="card" draggable="true" id="hola-mundo2">
+              <p class="card__title">Titulo de la card 1</p>
+              <p class="card__status">prioridad</p>
+              <p class="card__description">
+                la descripción
+              </p>
+            </div>
+
+            <div class="card" draggable="true" id="hola-mundo3">
+              <p class="card__title">Titulo de la card 2</p>
+              <p class="card__status">prioridad</p>
+              <p class="card__description">
+                la descripción
+              </p>
+            </div>
+          </div>
+          <!-- column task -->
+          <!-- column task -->
+          <div class="column">
+            <h2 class="column-title">In progress</h2>
+          </div>
+          <!-- column task -->
+          <!-- column task -->
+          <div class="column">
+            <h2 class="column-title">Paused</h2>
+          </div>
+          <!-- column task -->
+          <!-- column task -->
+          <div class="column">
+            <h2 class="column-title">Review</h2>
+          </div>
+          <!-- column task -->
+          <!-- column task -->
+          <div class="column">
+            <h2 class="column-title">Completed</h2>
+          </div>
+          <!-- column task -->
+        </div>
+        <!-- task board columns -->
+      </div>
+
+      <!-- add task modal -->
+      <section class="modal hidden">
+        <div class="modal__content">
+          <button class="btn button-modal">X</button>
+          <form autocomplete="off" id="taskForm">
+            <h3 class="form__title">
+              Crear tarea
+            </h3>
+            <!-- form box -->
+            <div class="form__box">
+              <label for="task_name" class="form__label">
+                Nombre de la tarea
+              </label>
+              <input
+                type="text"
+                name="task_name"
+                class="form__input"
+                placeholder="Agrega el nombre de la tarea"
+                required
+              />
+            </div>
+            <!-- form box -->
+            <!-- form box -->
+            <div class="form__box">
+              <label for="task_name" class="form__label">
+                Prioridad
+              </label>
+              <select
+                name="task_priority"
+                id="priority"
+                class="form__input"
+                required
+              >
+                <option value="">Selecciona</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+              </select>
+            </div>
+            <!-- form box -->
+            <!-- form box -->
+            <div class="form__box">
+              <label for="task_description" class="form__label">
+                Nombre de la tarea
+              </label>
+
+              <textarea
+                class="form__input"
+                name="task_description"
+                id="task_description"
+                cols="50"
+                rows="5"
+                placeholder="Agrega la descripción de la tarea"
+                required
+              ></textarea>
+            </div>
+            <!-- form box -->
+            <div class="form__actions">
+              <button class="btn btn-secondary" type="submit">Agregar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- add task modal -->
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

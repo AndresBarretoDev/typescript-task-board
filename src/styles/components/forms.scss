@@ -1,0 +1,47 @@
+form {
+  input[type='text'],
+  input[type='password'],
+  input[type='date'],
+  input[type='phone'],
+  input[type='number'],
+  input[type='email'],
+  textarea {
+    font-family: inherit;
+    @include placeholder {
+      opacity: 0.6;
+    }
+  }
+}
+.form {
+  &__title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 10px 0 24px 0;
+    text-align: center;
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+  &__label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  &__input {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 12px 16px;
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    resize: none;
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
