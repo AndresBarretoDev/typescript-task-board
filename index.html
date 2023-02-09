@@ -20,44 +20,33 @@
         <!-- task board grid -->
         <div class="dashboard">
           <!-- column task -->
-          <div class="column" id="columnTasks">
-            <h2 class="column-title">All tasks</h2>
-
-            <div class="card" draggable="true" id="hola-mundo2">
-              <p class="card__title">Titulo de la card 1</p>
-              <p class="card__status">prioridad</p>
-              <p class="card__description">
-                la descripción
-              </p>
-            </div>
-
-            <div class="card" draggable="true" id="hola-mundo3">
-              <p class="card__title">Titulo de la card 2</p>
-              <p class="card__status">prioridad</p>
-              <p class="card__description">
-                la descripción
-              </p>
-            </div>
+          <div class="column">
+            <h2 class="column-title" draggable="false">All tasks</h2>
+            <div class="column-list" id="toDoList"></div>
           </div>
           <!-- column task -->
           <!-- column task -->
           <div class="column">
             <h2 class="column-title">In progress</h2>
+            <div class="column-list" id="inProgressList"></div>
           </div>
           <!-- column task -->
           <!-- column task -->
           <div class="column">
             <h2 class="column-title">Paused</h2>
+            <div class="column-list" id="pausedList"></div>
           </div>
           <!-- column task -->
           <!-- column task -->
           <div class="column">
             <h2 class="column-title">Review</h2>
+            <div class="column-list" id="reviewList"></div>
           </div>
           <!-- column task -->
           <!-- column task -->
           <div class="column">
             <h2 class="column-title">Completed</h2>
+            <div class="column-list" id="completedList"></div>
           </div>
           <!-- column task -->
         </div>

@@ -16,12 +16,7 @@
 }
 
 .column {
-  min-height: 80vh;
-  background: var(--gray);
-  border-radius: 8px;
-  padding: 1.5rem;
   scroll-snap-align: start;
-  transition: all 0.4s ease;
   display: inline-block;
   width: 100%;
   max-width: 290px;
@@ -29,6 +24,15 @@
   margin: 0 8px;
   vertical-align: top;
   white-space: nowrap;
+  &-list {
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-height: 80vh;
+    width: 100%;
+    background: var(--gray);
+    transition: all 0.4s ease;
+    padding-bottom: 50px;
+  }
 
   &-title {
     color: var(--dark);
